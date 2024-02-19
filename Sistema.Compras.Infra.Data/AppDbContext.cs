@@ -11,7 +11,7 @@ namespace Sistema.Compras.Infra.Data
             
         }
         public DbSet<Usuario> Usuarios { get; set; }
-        public DbSet<Perfil> Perfis { get; set; } // Adicionei esta linha assumindo que você tem uma classe Perfil
+        public DbSet<Perfil> Perfis { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

@@ -9,13 +9,8 @@ namespace Sistema.Compras.Infra.IoC
     {
         public static void AddDatabase(this IServiceCollection services, IConfiguration configuration)
         {
-            var serverVersion = new MySqlServerVersion(new Version(8, 0, 36));
-            services.AddDbContext<AppDbContext>(
-            dbContextOptions => dbContextOptions
-                .UseMySql(configuration.GetConnectionString("compras_db"), serverVersion)
-                .EnableSensitiveDataLogging()
-                .EnableDetailedErrors()
-        );
+            services.AddDbContext<AppDbContext>(options =>
+                options.UseNpgsql(configuration.GetConnectionString("WebApiDatabase")));
         }
     }
 }
